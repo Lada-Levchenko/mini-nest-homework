@@ -1,13 +1,13 @@
 // implementation target file
 import "reflect-metadata"
-import {BooksModule} from "./apps/books/books.module";
-import {Factory} from "./core/http";
+import {AppModule} from "./app/app.module";
+import {createApp} from "./core/app";
 
 process.on('uncaughtException', (err) => {
   console.error('Uncaught Exception:', err);
 });
 
-const app = Factory([BooksModule])
+const app = createApp(AppModule);
 
 const port = 8081;
 
